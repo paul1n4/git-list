@@ -1,4 +1,3 @@
-import './App.css';
 import Filters from './components/Filters';
 import Layout from './components/Layout';
 import Profile from './components/Profile';
