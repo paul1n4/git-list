@@ -1,13 +1,12 @@
 import styled from 'styled-components'
-import Button from './Button'
 import props from './profile-data'
+import Button from './Button'
+import Icon from './icon/Index'
 
 const ProfileStyled = styled.div`
   grid-area: profile;
   /* background-color: yellow; */
-  .custom {
-    border: 1px solid green;
-  }
+
   .avatar {
     border-radius: 50%;
     border: 1px solid var(--grey-2);
@@ -50,6 +49,7 @@ function Profile() {
   const { name, login, avatar_url, bio, followers, following, location, twitter_username, blog } = props
   return (
     <ProfileStyled>
+   
       <img src={avatar_url} className='avatar' width="278" height="278" alt=''/>
       <p className="name">{name}</p>
       <p className="username">{login}</p>
@@ -57,11 +57,14 @@ function Profile() {
         <Button 
           text="Follow"
           link="#"
-          className='custom'
         />
         <Button 
           text="Sponsor"
-          icon={<i>😺</i>}
+          icon={<Icon
+            name="heart" 
+            size={24}
+            color="var(--pink)"
+          />}
         />
       </div>
       <p className="bio info">{bio}</p>
