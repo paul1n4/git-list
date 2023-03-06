@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import props from './profile-data'
+// import props from './profile-data'
 import Button from './Button'
 import Icon from './icon/Index'
 
@@ -45,8 +45,9 @@ const ProfileStyled = styled.div`
   }
 `
 
-function Profile() {
+function Profile(props) {
   const { name, login, avatar_url, bio, followers, following, location, twitter_username, blog } = props
+ 
   return (
     <ProfileStyled>
    
