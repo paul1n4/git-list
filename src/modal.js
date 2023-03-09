@@ -1,9 +1,42 @@
-import { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Overlay from './Overlay'
 import styled from 'styled-components'
 import { ButtonContrast } from './components/Button'
 import InputText from './components/Input-text'
+
+class Modal extends React.Component {
+  constructor(props) {
+    super(props)
+    this.name = 'asdgteb'
+  }
+  state = {
+    a:'Miguel'
+  }
+  componentDidUpdate() {
+    console.log('el componente se actualizó');
+  }
+  componentWillUnmount() {
+    console.log('el componente está a punto de desaparcer');
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        a: 'Leo',
+        b: this.name
+      })
+    }, 5000)
+  }
+  render() {
+    return (
+      <div style={{ background: 'black'}}>
+        {this.state.a}
+        {this.state.b}
+        miau
+      </div>
+    )
+  }
+}
 
 const ModalContentStyled = styled.form`
   background: var(--bg);
@@ -28,16 +61,22 @@ const ModalContentStyled = styled.form`
 function ModalContent() {
   const form = useRef(null)
   const navigator = useNavigate()
+  console.log({form});
+  const [isActive, setIsActive] = useState(true)
 
   function handleSubmit(event) {
+    setIsActive(false)
     event.preventDefault()
     const formData = new FormData(form.current)
-    console.log();
     navigator(`/${formData.get('username')}`)
   }
 
   return (
     <Overlay>
+      {
+        isActive ? <Modal /> : null
+      }
+      
       <ModalContentStyled ref={form} action="" onSubmit={(handleSubmit)}>
         <h2 className='title'>Search any user</h2>
         <InputText type="text" autoComplete='off' name="username" placeholder="Username"/> 

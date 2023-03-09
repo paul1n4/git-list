@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Icon from './icon/Index'
-import ModalContent from '../modal'
+import ModalContent from '../Modal'
 
 const FiltersStyled = styled.div`
   grid-area: filters;
