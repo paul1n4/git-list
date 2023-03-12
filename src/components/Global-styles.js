@@ -25,7 +25,6 @@ const GlobalStylesStyled = createGlobalStyle`
     --caption-medium: 500 0.75rem/1.125rem Inter; 
   }
   body {
-    border: 10px solid orange;
     background: var(--bg);
     color: var(--grey);
     font: var(--body1-regular);
